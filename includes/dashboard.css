@@ -1,0 +1,182 @@
+/* ==========================================================================
+   dashboard.css — barra superior y módulos. Cargar DESPUÉS de style.css
+   ========================================================================== */
+
+/* ---------- Barra superior ---------- */
+.barra {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 2rem;
+  font-size: 1rem;
+}
+
+.barra .marca {
+  font-family: var(--fuente-titulo);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--senal);
+  text-decoration: none;
+}
+
+.navegacion {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.navegacion a {
+  padding: 0.35rem 0.7rem;
+  color: var(--chapa);
+  text-decoration: none;
+  border-radius: var(--radio);
+}
+
+.navegacion a:hover {
+  color: var(--asfalto);
+  background: var(--senal);
+}
+
+.barra .usuario {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.95rem;
+  color: #b9c1c9;
+}
+
+.barra .cerrarSesion {
+  margin: 0;
+  padding: 0.35rem 0.8rem;
+  color: var(--chapa);
+  background: transparent;
+  border-color: #5b6772;
+}
+
+.barra .cerrarSesion:hover {
+  color: var(--asfalto);
+  background: var(--chapa);
+}
+
+/* ---------- Contenido ---------- */
+main {
+  padding-bottom: 3rem;
+}
+
+main h1 {
+  margin-top: 2rem;
+}
+
+/* ---------- Tarjetas de módulos ---------- */
+.modulos {
+  margin-top: 1.5rem;
+}
+
+.modulo {
+  display: block;
+  padding: 1.25rem 1.4rem;
+  color: var(--asfalto);
+  text-decoration: none;
+  background: var(--papel);
+  border: 1px solid var(--linea);
+  border-left: 6px solid var(--acero);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  transition: border-left-color 0.15s, transform 0.1s;
+}
+
+.modulo:hover {
+  color: var(--asfalto);
+  border-left-color: var(--senal);
+  transform: translateY(-2px);
+}
+
+.modulo h2 {
+  margin-bottom: 0.25rem;
+  font-size: 1.25rem;
+}
+
+.modulo p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--acero-claro);
+}
+
+/* ---------- Módulos: cabecera de sección y formularios en línea ---------- */
+.seccion-cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.seccion-cabecera h1 {
+  margin: 0;
+}
+
+.formulario-linea {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.75rem;
+}
+
+.formulario-linea>div {
+  flex: 1 1 200px;
+}
+
+.formulario-linea button {
+  margin-top: 0;
+}
+
+td form {
+  display: flex;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+td form select {
+  padding: 0.35rem 0.5rem;
+}
+
+td form button {
+  margin: 0;
+  padding: 0.35rem 0.8rem;
+}
+
+@media (max-width: 640px) {
+  .barra .usuario {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+/* ---------- Formulario de nueva orden ---------- */
+[hidden] {
+  display: none !important;
+}
+
+.opciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.opciones label {
+  margin: 0;
+  font-weight: 500;
+}
+
+.opciones input[type="radio"] {
+  width: auto;
+  margin-right: 0.4rem;
+  accent-color: var(--asfalto);
+}
+
+.formulario-orden .formulario-linea+.formulario-linea {
+  margin-top: 0.75rem;
+}

@@ -1,0 +1,382 @@
+/* ==========================================================================
+   Gestor del Taller Mecánico — style.css
+   Guardar en: includes/style.css
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Semi+Condensed:wght@600;700&display=swap");
+
+/* ---------- Tokens ---------- */
+:root {
+    /* Color */
+    --asfalto: #1d2228;
+    --acero: #2e3842;
+    --acero-claro: #5b6772;
+    --chapa: #e8eaed;
+    --papel: #ffffff;
+    --linea: #d3d8dd;
+    --senal: #f5b700;
+    /* amarillo de señalización */
+    --senal-oscuro: #d99f00;
+    --ok: #1f7a4d;
+    --ok-fondo: #e3f3ea;
+    --error: #b3261e;
+    --error-fondo: #fbe9e7;
+
+    /* Tipografía */
+    --fuente-titulo: "Barlow Semi Condensed", "Arial Narrow", system-ui, sans-serif;
+    --fuente-texto: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+    /* Forma */
+    --radio: 6px;
+    --sombra: 0 1px 2px rgba(29, 34, 40, 0.08), 0 8px 24px rgba(29, 34, 40, 0.08);
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: var(--fuente-texto);
+    font-size: 1rem;
+    line-height: 1.55;
+    color: var(--asfalto);
+    background: var(--chapa);
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--fuente-titulo);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: 0.01em;
+    margin: 0 0 0.75rem;
+}
+
+a {
+    color: var(--acero);
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+}
+
+a:hover {
+    color: var(--asfalto);
+    text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+    outline: 3px solid var(--senal);
+    outline-offset: 2px;
+}
+
+/* ---------- Cabecera ---------- */
+/* Pieza distintiva: banda de señalización de taller bajo el título */
+.cabecera {
+    margin: 0;
+    padding: 1.1rem clamp(1rem, 4vw, 3rem);
+    font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+    color: var(--chapa);
+    background: var(--asfalto);
+    border-bottom: 10px solid transparent;
+    border-image: repeating-linear-gradient(-45deg,
+            var(--senal) 0 14px,
+            var(--asfalto) 14px 28px) 1;
+}
+
+/* ---------- Contenido de la página principal (index.php) ---------- */
+body> :not(.cabecera):not(.tarjeta):not(script) {
+    width: min(960px, 100% - 2rem);
+    margin-inline: auto;
+}
+
+.mensajeInicioSesion {
+    margin-top: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+body>p {
+    color: var(--acero-claro);
+    margin-block: 0.25rem 1rem;
+}
+
+.cerrarSesion {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.55rem 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--asfalto);
+    background: var(--papel);
+    border: 1.5px solid var(--asfalto);
+    border-radius: var(--radio);
+    transition: background 0.15s, color 0.15s;
+}
+
+.cerrarSesion:hover {
+    color: var(--chapa);
+    background: var(--asfalto);
+}
+
+/* ---------- Tarjeta (login / registro) ---------- */
+body:has(.tarjeta) {
+    display: grid;
+    place-items: center;
+    padding: 1.5rem 1rem;
+}
+
+.tarjeta {
+    display: flex;
+    flex-direction: column;
+    width: min(420px, 100%);
+    padding: 2rem;
+    background: var(--papel);
+    border: 1px solid var(--linea);
+    border-top: 6px solid var(--senal);
+    border-radius: var(--radio);
+    box-shadow: var(--sombra);
+}
+
+.tarjeta h1 {
+    font-size: 1.75rem;
+    margin-bottom: 1.25rem;
+}
+
+/* La cabecera incluida dentro de la tarjeta pasa a ser una marca discreta
+   y se coloca arriba del todo */
+.tarjeta .cabecera {
+    order: -1;
+    padding: 0 0 0.75rem;
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+    color: var(--acero-claro);
+    background: none;
+    border: 0;
+    border-bottom: 1px solid var(--linea);
+}
+
+/* ---------- Formularios ---------- */
+.formularioLogin,
+.formularioRegistrar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+label {
+    margin-top: 0.65rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--acero);
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 0.7rem 0.8rem;
+    font: inherit;
+    color: var(--asfalto);
+    background: #f7f8f9;
+    border: 1.5px solid var(--linea);
+    border-radius: var(--radio);
+    transition: border-color 0.15s, background 0.15s;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+    border-color: var(--acero-claro);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    background: var(--papel);
+    border-color: var(--asfalto);
+    outline: 3px solid rgba(245, 183, 0, 0.55);
+    outline-offset: 0;
+}
+
+button,
+.btn {
+    display: inline-block;
+    margin-top: 1.25rem;
+    padding: 0.8rem 1.25rem;
+    font: inherit;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    color: var(--asfalto);
+    background: var(--senal);
+    border: 0;
+    border-radius: var(--radio);
+    cursor: pointer;
+    transition: background 0.15s, transform 0.05s;
+}
+
+button:hover,
+.btn:hover {
+    color: var(--asfalto);
+    background: var(--senal-oscuro);
+}
+
+button:active,
+.btn:active {
+    transform: translateY(1px);
+}
+
+.enlace {
+    margin: 1.25rem 0 0;
+    font-size: 0.95rem;
+    color: var(--acero-claro);
+}
+
+.enlace a {
+    margin-left: 0.35rem;
+    font-weight: 600;
+}
+
+/* ---------- Mensajes ---------- */
+.mensaje {
+    margin: 0 0 1rem;
+    padding: 0.75rem 1rem;
+    border-left: 4px solid var(--acero);
+    border-radius: var(--radio);
+    background: var(--chapa);
+}
+
+.mensaje--ok {
+    color: var(--ok);
+    background: var(--ok-fondo);
+    border-color: var(--ok);
+}
+
+.mensaje--error {
+    color: var(--error);
+    background: var(--error-fondo);
+    border-color: var(--error);
+}
+
+/* ---------- Componentes para el dashboard ---------- */
+.panel {
+    padding: 1.25rem 1.5rem;
+    background: var(--papel);
+    border: 1px solid var(--linea);
+    border-radius: var(--radio);
+    box-shadow: var(--sombra);
+}
+
+.rejilla {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+/* Tablas (órdenes de reparación, recambios, facturas…) */
+.tabla-contenedor {
+    overflow-x: auto;
+    background: var(--papel);
+    border: 1px solid var(--linea);
+    border-radius: var(--radio);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+th,
+td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--linea);
+}
+
+th {
+    font-family: var(--fuente-titulo);
+    font-weight: 600;
+    color: var(--chapa);
+    background: var(--acero);
+    white-space: nowrap;
+}
+
+tbody tr:nth-child(even) {
+    background: #f7f8f9;
+}
+
+tbody tr:hover {
+    background: #fff6d6;
+}
+
+tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+/* Estados de una orden */
+.estado {
+    display: inline-block;
+    padding: 0.15rem 0.6rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 999px;
+    background: var(--chapa);
+    color: var(--acero);
+}
+
+.estado--pendiente {
+    background: #fff1c2;
+    color: #7a5a00;
+}
+
+.estado--en-curso {
+    background: #dbeafe;
+    color: #1e4a8a;
+}
+
+.estado--listo {
+    background: var(--ok-fondo);
+    color: var(--ok);
+}
+
+.estado--urgente {
+    background: var(--error-fondo);
+    color: var(--error);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 480px) {
+    .tarjeta {
+        padding: 1.5rem 1.25rem;
+    }
+
+    th,
+    td {
+        padding: 0.6rem 0.75rem;
+    }
+}
+
+/* ---------- Accesibilidad ---------- */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+}

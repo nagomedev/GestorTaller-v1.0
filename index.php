@@ -13,6 +13,7 @@ $rolEtiqueta = ROLES[$_SESSION['rol']] ?? $_SESSION['rol'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Panel · Gestor del Taller</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="includes/style.css">
     <link rel="stylesheet" href="includes/dashboard.css">
 </head>

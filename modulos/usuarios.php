@@ -102,6 +102,7 @@ $usuarios  = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Usuarios · Gestor del Taller</title>
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../includes/style.css">
     <link rel="stylesheet" href="../includes/dashboard.css">
 </head>

@@ -3,7 +3,10 @@
 $rolEtiqueta = ROLES[$_SESSION['rol'] ?? ''] ?? ($_SESSION['rol'] ?? '');
 ?>
 <header class="cabecera barra">
-    <a class="marca" href="<?= BASE_URL ?>index.php">Gestor del Taller</a>
+    <a class="marca" href="<?= BASE_URL ?>index.php">
+        <img src="<?= BASE_URL ?>includes/logo.svg" alt="Gestor del Taller" class="logo-marca">
+        <span>Gestor del Taller</span>
+    </a>
 
     <nav class="navegacion" aria-label="Módulos">
         <?php foreach (modulos_visibles() as $clave => $m): ?>

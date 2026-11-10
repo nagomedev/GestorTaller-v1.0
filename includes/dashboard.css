@@ -12,11 +12,21 @@
 }
 
 .barra .marca {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-family: var(--fuente-titulo);
   font-size: 1.35rem;
   font-weight: 700;
   color: var(--senal);
   text-decoration: none;
+}
+
+.logo-marca {
+  width: 28px;
+  height: 28px;
+  display: block;
+  flex-shrink: 0;
 }
 
 .navegacion {
